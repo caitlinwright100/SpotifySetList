@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Playlist Success</title>
+    <style>
+        /* Your existing CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff; /* White text color */
+            background-color: #000; /* Black background color */
+            font-size: 16px;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #fff; /* White text color */
+            padding: 20px;
+        }
+
+        main {
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            background-color: #6a0dad; /* Purple background for the main content */
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #6a0dad; /* Purple button background color */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px; /* Rounded corners */
+            cursor: pointer;
+            display: block;
+            margin: 20px auto; /* Center the button */
+        }
+
+        .btn:hover {
+            background: #5a0c9e; /* Darker purple hover color */
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Playlist Created Successfully!</h1>
+        <p>Follow the link to see your playlist: {{  playlist_url }}</p>
+        <button class="btn" onclick="window.location.href='/'">Create Another Playlist</button>
+    </main>
+</body>
+</html>

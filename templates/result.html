@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Playlist Result</title>
+    <style>
+        /* Define font, color, size for all text */
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff; /* White text color */
+            background-color: #000; /* Black background color */
+            font-size: 16px;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        /* Style the header */
+        h1, h2 {
+            text-align: center;
+            color: #fff; /* White text color */
+            padding: 20px;
+        }
+
+        /* Style the main content */
+        main {
+            padding: 20px;
+            width: 80%;
+            margin: 0 auto;
+            background-color: #6a0dad; /* Dark gray background for the main content */
+            border-radius: 10px;
+        }
+
+        /* Style the list */
+        ul {
+            list-style-type: none; /* Remove default list bullets */
+            padding: 0;
+        }
+
+        li {
+            background-color: #222; /* Dark background for list items */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        /* Style the button */
+        .btn {
+            background-color: #6a0dad; /* Purple button background color */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px; /* Rounded corners */
+            cursor: pointer;
+            display: block;
+            margin: 20px auto; /* Center the button */
+        }
+
+        .spotify {
+            background-color: #16ae4b; /* Green button background color */
+            color: black; 
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px; /* Rounded corners */
+            cursor: pointer;
+            display: block;
+            margin: 20px auto; /* Center the button */
+        }
+
+        /* Add hover effect to buttons */
+        .btn:hover {
+            background: #5a0c9e; /* Darker purple hover color */
+        }
+
+        /* Add hover effect to buttons */
+        .spotify:hover {
+            background: hsl(141, 79%, 26%)
+        }
+
+        /* Loading spinner styles */
+        .spinner-border {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999; /* Ensure the spinner is above other content */
+            display: none; /* Initially hidden */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Spotify Playlist Result</h1>
+    <main>
+        <h2>Login to Create Playlist</h2>
+        <button class="spotify" onclick="window.location.href='/login'">Login to Spotify</button>
+        <h2>Setlist for {{ artist_name }}</h2>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% else %}
+            <ul>
+                {% for song in spotify_setlist %}
+                    <li>{{ song }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <button class="btn" onclick="window.location.href='/'">Create Another Playlist</button>
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Artist Playlist</title>
+    <style>
+        /* Define font, color, size for all text */
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff; /* White text color */
+            background-color: #000; /* Black background color */
+            font-size: 16px;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        /* Style the header */
+        h1 {
+            text-align: center;
+            color: #fff; /* White text color */
+            padding: 20px;
+        }
+
+        /* Style the form */
+        form {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333; /* Dark gray background for the form */
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff; /* White text color */
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Ensure padding and border are included in width */
+            background-color: #222; /* Dark background for inputs */
+            color: #fff; /* White text color */
+        }
+
+        button[type="submit"] {
+            background-color: #6a0dad; /* Purple button background color */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px; /* Rounded corners */
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Add hover effect to buttons */
+        button[type="submit"]:hover {
+            background-color: #5a0c9e; /* Darker purple hover color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Create a Spotify Playlist from Setlist FM</h1>
+    <form action="/create-playlist" method="post">
+        <label for="artist_name">Artist Name:</label>
+        <input type="text" id="artist_name" name="artist_name" required>
+        <label for="playlist_flag">Include All Setlist Songs? (Yes/No):</label>
+        <input type="text" id="playlist_flag" name="playlist_flag" required>
+        <button type="submit">Create Playlist</button>
+    </form>
+</body>
+</html>
