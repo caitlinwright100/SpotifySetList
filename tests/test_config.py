@@ -2,7 +2,7 @@ import os
 import pytest
 from unittest.mock import patch
 from app.spotify.connect import SpotifyAuth
-from app.config import ConfigEnv, SETLIST_BASE_URL, SETLIST_API_KEY, SPOTIFY_USER, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET
+from app.config import ConfigEnv, SETLIST_BASE_URL, SETLIST_API_KEY, SPOTIFY_USER, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, REDIRECT_URI
 
 # Mock environment variables
 
@@ -10,7 +10,8 @@ mock_env_vars = {SETLIST_BASE_URL: "http://example.com",
                 SETLIST_API_KEY: "test-api-key",
                 SPOTIFY_USER: "test_user", 
                 SPOTIFY_CLIENT_ID: "test_client_id",
-                SPOTIFY_CLIENT_SECRET: "test_client_secret"
+                SPOTIFY_CLIENT_SECRET: "test_client_secret",
+                REDIRECT_URI: "test_redirect_uri"
 }
 
 @pytest.fixture
@@ -37,6 +38,9 @@ def test_spotify_client_id(config):
 
 def test_spotify_client_secret(config):
     assert config.spotify_client_secret() == "test_client_secret"
+
+def test_redirect_uri(config):
+    assert config.spotify_redirect_uri() == "test_redirect_uri"
 
 def test_check_env_vars(config):
     for var in mock_env_vars:

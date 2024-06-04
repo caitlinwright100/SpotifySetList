@@ -10,12 +10,15 @@ SPOTIFY_USER = "SPOTIFY_USER"
 SPOTIFY_CLIENT_ID = "SPOTIFY_CLIENT_ID"
 SPOTIFY_CLIENT_SECRET = "SPOTIFY_CLIENT_SECRET"
 
+REDIRECT_URI = "REDIRECT_URI"
+
 env_vars = [
     SETLIST_BASE_URL,
     SETLIST_API_KEY,
     SPOTIFY_USER,
     SPOTIFY_CLIENT_ID,
     SPOTIFY_CLIENT_SECRET,
+    REDIRECT_URI
 ]
 
 
@@ -38,6 +41,9 @@ class ConfigEnv:
 
     def spotify_client_secret(self):
         return os.environ[SPOTIFY_CLIENT_SECRET]
+    
+    def spotify_redirect_uri(self):
+        return os.environ[REDIRECT_URI]
 
     def check_env_vars(self):
         for var in env_vars:
@@ -46,7 +52,8 @@ class ConfigEnv:
     def spotify_auth(self):
         return SpotifyAuth(
             self.spotify_client_id(),
-            self.spotify_client_secret()
+            self.spotify_client_secret(),
+            self.spotify_redirect_uri()
         )
     
     def setlist_connector(self) -> ConnectAndSearchArtistSetlist:
