@@ -52,6 +52,7 @@ def test_spotify_auth(config):
     assert isinstance(spot_auth, SpotifyAuth)
     assert spot_auth.client_id == "test_client_id"
     assert spot_auth.client_secret == "test_client_secret"
+    assert spot_auth.spotify_redirect_uri == "test_redirect_uri"
    
 if __name__ == "__main__":
     pytest.main()

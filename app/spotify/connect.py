@@ -12,6 +12,7 @@ class SpotifyAuth:
             scope="playlist-modify-private",
             show_dialog=True,
         )
+        
 
     def connect_to_spotify(self) -> Spotify:
         return Spotify(auth_manager=self.auth)

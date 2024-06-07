@@ -19,6 +19,9 @@ class MockConfigEnv(ConfigEnv):
 
     def spotify_client_secret(self):
         return "mock-spotify-client-secret"
+    
+    def spotify_redirect_uri(self):
+        return "mock_redirect_url"
 
     def spotify_auth(self):
         class MockSpotifyAuth:
