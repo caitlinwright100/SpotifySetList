@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        type: choice
+        options:
+        - dev
+        - preprod
+        - prod
+
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Environment: $ENVIRONMENT"
+          echo "This is the hash: $SHA"
+        env:
+          ENVIRONMENT: ${{ inputs.environment }}
+          SHA: ${{ github.sha }}
