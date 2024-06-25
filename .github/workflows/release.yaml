@@ -19,3 +19,15 @@ jobs:
         env:
           ENVIRONMENT: ${{ inputs.environment }}
           SHA: ${{ github.sha }}
+
+      - name: "Create new launch template version"
+        run: |
+          aws ec2 create-launch-template-version \
+          --launch-template-id your-launch-template-id \
+          --source-version your-existing-version-number \
+          --launch-template-data '{"UserData":"${{ github.sha }}"}'
+
+      - name: "Instance refresh"
+        run: |
+            #  Code for cailtin to write
+      
