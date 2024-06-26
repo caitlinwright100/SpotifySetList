@@ -4,7 +4,7 @@ from unittest.mock import patch
 from app.spotify.connect import SpotifyAuth
 from app.config import ConfigEnv, SETLIST_BASE_URL, SETLIST_API_KEY, SPOTIFY_USER, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, REDIRECT_URI
 
-# Mock the environment variables
+# Mock environment variables
 
 mock_env_vars = {SETLIST_BASE_URL: "http://example.com",
                 SETLIST_API_KEY: "test-api-key",
