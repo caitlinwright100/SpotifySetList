@@ -1,13 +1,33 @@
+name: Release and Refresh Auto Scaling
+
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Build and Push Docker Image to ECR"]
+    types:
+      - completed
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Start instance refresh 
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup AWS ECR Details
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Cancel ongoing instance refresh
         run: |
-            aws autoscaling start-instance-refresh \
+          aws autoscaling cancel-instance-refresh \
+            --auto-scaling-group-name spotify-setlist-autoscaling-group || echo "No ongoing instance refresh to cancel"
+
+      - name: Start new instance refresh
+        run: |
+          aws autoscaling start-instance-refresh \
             --auto-scaling-group-name spotify-setlist-autoscaling-group \
             --preferences '{"SkipMatching": false }'
