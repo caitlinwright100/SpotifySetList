@@ -27,10 +27,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          # No longer in use: docker build -t ${{ secrets.ECR_REPOSITORY_URI }}:${{ github.sha }} .
           docker build -t ${{ secrets.ECR_REPOSITORY_URI }}:latest .
           
       - name: Push Docker image to ECR
         run: |
-          # No longer in use: docker push ${{ secrets.ECR_REPOSITORY_URI }}:${{ github.sha }}
           docker push ${{ secrets.ECR_REPOSITORY_URI }}:latest
