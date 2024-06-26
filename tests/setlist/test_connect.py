@@ -27,9 +27,9 @@ def test_connect_to_api(mock_requests: MagicMock):
     result = connect_and_search_artist_setlist.connect_to_api(artist)
 
     # Assert expected results
-    ## We are getting the expected response
+    # We are getting the expected response
     assert result == expected_result 
-    ## We are calling the get method correctly
+    # We are calling the get method correctly
     mock_requests.get.assert_called_once_with(
         BASE_URL,
         params={"artistName": artist},
