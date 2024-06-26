@@ -10,16 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # Test here
-
-      - # 1. Setup python - use a default action
-
-      - # 2. install requirements
-
-      - # 3. Run pytest
 
       - name: Setup AWS ECR Details
         uses: aws-actions/configure-aws-credentials@v4
