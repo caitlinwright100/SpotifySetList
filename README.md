@@ -25,6 +25,7 @@ This repository contains the code which built the website: [spotifysetlistcreato
 - AWS - EC2, ECR, IAM, Route 53
 - Bash
 - HTML
+- VS Code
 
 # Upcoming Updates
 - Create a release.yaml github action to automate refreshing the instance
