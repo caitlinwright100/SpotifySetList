@@ -1,5 +1,5 @@
 # Introduction
-This repository contains the code which built the website: [spotifysetlistcreator.com](https://spotifysetlistcreator.com). The website purpose is to automate the process of creating a spotify playlist in a spotify account, which reflects an artist's most recent setlist from [Setlist FM](www.setlistfm.com).
+This repository contains the code which built the website: [spotifysetlistcreator.com](https://spotifysetlistcreator.com) - please note that this website may not be available on all IP addresses if I am making changes. The website purpose is to automate the process of creating a spotify playlist in a spotify account, which reflects an artist's most recent setlist from [Setlist FM](www.setlistfm.com).
 
 # Instructions
 1) Follow the link to the website and input an artist name
